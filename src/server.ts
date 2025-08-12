@@ -7,7 +7,7 @@ dotenv.config();
 
 const app = express();
 
-job.start();
+// job.start();
 
 const PORT = process.env.PORT || 3000;
 
