@@ -7,14 +7,14 @@ dotenv.config();
 
 const app = express();
 
-// job.start();
+job.start();
 
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use("/api/tokens", tokenRoutes);
 
-app.get("/api/health", (req: Request, res:Response) => {
+app.get("/api/recall", (req: Request, res:Response) => {
   res.status(200).json({
     status: "ok",
     timestamp: new Date().toISOString(),
