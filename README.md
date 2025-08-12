@@ -12,7 +12,7 @@ A powerful text tokenization, encoding, and decoding API built with Node.js and 
 
 ## 📋 API Endpoints
 
-### 1. **POST `/tokens` - Tokenize Sentence**
+### 1. **POST `/api/tokens` - Tokenize Sentence**
 
 Breaks a sentence into individual tokens.
 
@@ -39,7 +39,7 @@ Breaks a sentence into individual tokens.
 
 ---
 
-### 2. **POST `/encode` - Encode Tokens**
+### 2. **POST `/api/tokens/encode` - Encode Tokens**
 
 Takes tokens and applies common word compression followed by Caesar cipher encryption.
 
@@ -76,7 +76,7 @@ Takes tokens and applies common word compression followed by Caesar cipher encry
 
 ---
 
-### 3. **POST `/decode` - Decode Tokens**
+### 3. **POST `/api/tokens/decode` - Decode Tokens**
 
 Decrypts encoded tokens and restores original words.
 
@@ -146,7 +146,7 @@ The API uses case-sensitive common word compression:
 ### Step 1: Tokenize
 
 ```bash
-curl -X POST http://localhost:3000/tokens \
+curl -X POST https://tokenizer-api-axrr.onrender.com/api/tokens \
   -H "Content-Type: application/json" \
   -d '{"sentence": "Hello world and the data"}'
 ```
@@ -154,7 +154,7 @@ curl -X POST http://localhost:3000/tokens \
 ### Step 2: Encode
 
 ```bash
-curl -X POST http://localhost:3000/encode \
+curl -X POST https://tokenizer-api-axrr.onrender.com/api/tokens/encode \
   -H "Content-Type: application/json" \
   -d '{"tokens": ["Hello", "world", "and", "the", "data"], "shift": 5}'
 ```
@@ -162,7 +162,7 @@ curl -X POST http://localhost:3000/encode \
 ### Step 3: Decode
 
 ```bash
-curl -X POST http://localhost:3000/decode \
+curl -X POST https://tokenizer-api-axrr.onrender.com/api/tokens/decode \
   -H "Content-Type: application/json" \
   -d '{"encodedTokens": ["#8F", "#9", "#7", "#6", "#0"], "shift": 5}'
 ```
