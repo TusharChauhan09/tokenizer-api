@@ -1,20 +1,23 @@
 import { CronJob } from "cron";
 import https from "https";
-const apiUrl = process.env.API_URL;
+import { IncomingMessage } from "http";
+
+const apiUrl: string | undefined = process.env.API_URL;
+
 if (!apiUrl) {
   throw new Error("API_URL is not defined in environment variables.");
 }
+
 const job = new CronJob("*/14 * * * *", function () {
   https
-    .get(apiUrl, (res) => {
+    .get(apiUrl, (res: IncomingMessage) => {
       if (res.statusCode === 200) console.log("GET request sent successfully");
       else console.log("GET request failed", res.statusCode);
     })
-    .on("error", (e) => console.error("Error while sending request", e));
+    .on("error", (e: Error) => console.error("Error while sending request", e));
 });
 
 export default job;
-
 
 // CRON JOB EXPLANATION:
 // Cron jobs are scheduled tasks that run periodically at fixed intervals

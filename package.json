@@ -4,7 +4,7 @@
   "main": "dist/server.js",
   "scripts": {
     "dev": "ts-node src/server.ts",
-    "build": "npm install && tsc",
+    "build": "tsc",
     "start": "node dist/server.js",
     "test": "ts-node src/test.ts",
     "test:watch": "ts-node --watch src/test.ts",
