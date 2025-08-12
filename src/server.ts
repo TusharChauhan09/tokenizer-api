@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import dotenv from "dotenv";
 import tokenRoutes from "./routes/route.token";
 import job from "./config/corn";
@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use("/api/tokens", tokenRoutes);
 
-app.get("/api/health", (req, res) => {
+app.get("/api/health", (req: Request, res:Response) => {
   res.status(200).json({
     status: "ok",
     timestamp: new Date().toISOString(),

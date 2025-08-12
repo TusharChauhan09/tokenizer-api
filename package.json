@@ -4,7 +4,7 @@
   "main": "dist/server.js",
   "scripts": {
     "dev": "ts-node src/server.ts",
-    "build": "npm install && tsc",
+    "build": "tsc",
     "start": "node dist/server.js",
     "test": "ts-node src/test.ts",
     "test:watch": "ts-node --watch src/test.ts",
@@ -18,7 +18,6 @@
   "dependencies": {
     "cors": "^2.8.5",
     "cron": "^4.3.3",
-    "crypto": "^1.0.1",
     "dotenv": "^17.2.1",
     "express": "^5.1.0"
   },
